@@ -1,0 +1,12 @@
+<title>Favourite songs</title>
+
+<h1>Here are all the Favourite Songs</h1><br>
+
+<ul>
+    {% for gana in all_songs %}
+        {% if gana.is_favourite is True %}
+            <li>{{ gana.album.artist }}---{{ gana.song_title }}</li>
+        {% endif %}
+    {% endfor %}
+    
+</ul>
