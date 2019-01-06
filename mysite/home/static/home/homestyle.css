@@ -1,0 +1,19 @@
+body {
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        background: aliceblue url("images/img2.jpg");
+    }
+
+.header {
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    font-size: 30px;
+}

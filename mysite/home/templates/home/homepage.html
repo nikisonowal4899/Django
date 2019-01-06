@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'home/homestyle.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+
+
+<h1 style="background: beige; color: hotpink; text-align: center;">Welcome to My HomePage</h1>
+
+<h3 class="header">Available Apps</h3>
+
+<ul>
+    <li>
+        <a href="{% url 'music:index' %}">Music</a>
+        <img src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/512/music.png" height="22px" width="22px">
+    </li>
+
+    <li>
+        <a href="#">Videos</a>
+        <img src="https://img.icons8.com/metro/1600/movie-projector.png" height="22px" width="22px">
+    </li>
+</ul>

@@ -1,0 +1,28 @@
+<title>All Songs</title>
+<style>
+    body {
+        font-size: 20px;
+        background: aliceblue;
+    }
+    span.song_name {
+        background: lightskyblue;
+    }
+    span.artist_name {
+        background: lavender;
+    }
+</style>
+
+<h1>List of available songs</h1>
+
+<ul>
+    {% for song in available_songs %}
+        <li>
+            <span class="song_name">{{ song.song_title }}</span>-- <span class="artist_name">{{ song.album.artist }}</span>
+            <img src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/512/music.png" height="22px" width="22px">
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'music:index' %}">
+    <input type="submit" value="Go Back">
+</a>
