@@ -1,12 +1,35 @@
 <title>Favourite songs</title>
+<style>
+    body {
+        font-size: 20px;
+        background: aliceblue;
+    }
+    span {
+        padding: 10px;
+        margin: 15px;
+    }
+    .song_name {
+        background: lightskyblue;
+    }
+    .artist_name {
+        background: lavender;
+    }
+</style>
+
 
 <h1>Here are all the Favourite Songs</h1><br>
 
 <ul>
     {% for gana in all_songs %}
         {% if gana.is_favourite is True %}
-            <li>{{ gana.album.artist }}---{{ gana.song_title }}</li>
+            <li>
+                <span class="song_name">{{ gana.album.artist }}</span>---<span class="artist_name">{{ gana.song_title }}</span>
+                <img src="https://www.clipartmax.com/png/small/32-325427_heart-icon-svg-heart-png-transparent-background.png" height="20px" width="20px">
+            </li><br>
         {% endif %}
     {% endfor %}
     
 </ul>
+<a href="{% url 'music:index' %}">
+    <input type="submit" value="Go Back">
+</a>
