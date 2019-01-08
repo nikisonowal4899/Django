@@ -36,6 +36,19 @@
                     </a>
                 </li>
 
+                <li class="">
+                    <a href="{% url 'music:all_songs' %}">
+                        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
+                        Songs
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="{% url 'music:favourite_songs' %}">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;
+                        Favourite Songs
+                    </a>
+                </li>
             </ul>
 
             <form class="navbar-form navbar-left" role="search" method="get" action="#">
@@ -47,7 +60,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                    <a href="{% url 'music:album-add' %}">
+                    <a href="#">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Album
                     </a>
                 </li>

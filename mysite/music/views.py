@@ -1,37 +1,21 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Album, Song
+from django.views import generic
+from .models import Album
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-def index(request):
-    all_albums = Album.objects.all()
-    context = {'all_albums': all_albums}
-    return render(request, 'music/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'music/index.html'
+    context_object_name = 'all_albums'
 
-def detail(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
-    return render(request, 'music/details.html', {'album': album})
+    def get_queryset(self):
+        return Album.objects.all()
 
-def favourite(request, album_id):
-    album = get_object_or_404(Album, pk = album_id)
-    try:
-        selected_song = album.song_set.get(pk=request.POST['song'])
-    except (KeyError, Song.DoesNotExist):
-        return render(request, 'music/details.html', {
-            'album' : album,
-            'error_message' : "You didn't select a valid song"
-        })
-    else:
-        selected_song.is_favourite = True
-        selected_song.save()
-        return render(request, 'music/details.html', {'album': album})
+class DetailView(generic.DetailView):
+    model = Album
+    template_name = 'music/details.html'
 
-def favourite_songs(request):
-    all_songs = Song.objects.all()
-    return render(request, 'music/favourite.html', {'all_songs':all_songs})
-
-def all_songs(request):
-    available_songs = Song.objects.all()
-    return render(request, 'music/all_songs.html', {'available_songs': available_songs})
-
+class AlbumCreate(CreateView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
 
 
 

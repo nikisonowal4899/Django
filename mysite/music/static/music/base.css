@@ -1,5 +1,5 @@
 body {
-    background: aliceblue url("images/img2.jpg");
+    background: aliceblue;
 }
 a {
     transition: 0.7s;

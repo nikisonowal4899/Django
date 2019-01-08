@@ -1,22 +1,23 @@
-<title>Index page</title>
-
 {% extends 'music/base.html' %}
+{% block title %}Index Page{% endblock %}
+    {% block body %}
+        {% if all_albums %}
+            <h2><span class="underline">Here are all my Albums</span></h2>
+            <ul>
+                {% for album in all_albums %}
+                <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>You don't have any Albums</h3>
+        {% endif %}
 
-{% block body %}
-    {% if all_albums %}
-        <h2>Here are all my Albums</h2>
-        <ul>
-            {% for album in all_albums %}
-            <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h3>You don't have any Albums</h3>
-    {% endif %}
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'music/index.css' %}">
+
+        <marquee behavior="scroll" direction="right" width="40%">
+            <img src="https://cdn2.iconfinder.com/data/icons/user-interface-and-over/512/009-01-512.png" height="14%" width="14%">
+        </marquee>
+
 {% endblock %}
 
-<style>
-    body {
-        background: aliceblue;
-    }
-</style>
