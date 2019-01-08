@@ -1,8 +1,0 @@
-body {
-    background: darkgray url("images/img1.jpg");
-    font-family: 'Tangerine', serif;
-    font-size: 48px;
-}
-a {
-    transition: 0.7s;
-}

@@ -1,0 +1,14 @@
+body {
+    background: aliceblue url("images/img2.jpg");
+}
+a {
+    transition: 0.7s;
+}
+
+.navbar {
+    border-radius: 0;
+}
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+    font-size: 23px;
+}
